@@ -18,7 +18,7 @@ var token = jwt.sign({ email: 'nickwu78@gmail.com' }, 'secret');
 console.log('API Key: ' + token)
 
 // connect to mongoose
-mongoose.connect('mongodb://<dbuser>:<dbpassword>@ds143191.mlab.com:43191/nw-recipes')
+mongoose.connect(process.env.MONGO_URI)
 const { connection: db } = mongoose;
 
 db.on('error', console.error.bind(console, 'connection error'));
